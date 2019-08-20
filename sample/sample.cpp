@@ -23,10 +23,13 @@ void checkstatus()
     }
 }
 
-int main()
-{
-    std::string account_name = "YOUR_ACCOUNT_NAME";
-    std::string account_key = "YOUR_ACCOUNT_KEY";
+int main(int argc, char** argv) {
+  if (argc != 3) {
+    std::cerr << "Args <storage account name> <storage account shared key>" << std::endl;
+  }
+
+  std::string account_name{argv[1]);
+  std::string account_key{argv[2]);
     std::shared_ptr<storage_credential>  cred = std::make_shared<shared_key_credential>(account_name, account_key);
     std::shared_ptr<storage_account> account = std::make_shared<storage_account>(account_name, cred, false);
     auto bC = std::make_shared<blob_client>(account, 10);

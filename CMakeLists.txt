@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project(azurestoragelite)
 
 option(BUILD_TESTS       "Build test codes"                  OFF)
-option(BUILD_SAMPLES     "Build sample codes"                OFF)
+option(BUILD_SAMPLES     "Build sample codes"                ON)
 option(BUILD_SHARED_LIBS "Request build of shared libraries" OFF)
 
 set(AZURE_STORAGE_LITE_HEADER
@@ -246,8 +246,8 @@ endif()
 
 if (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
   add_definitions(-std=c++11)
-  set(WARNING "-Wall -Wextra -Werror -pedantic -pedantic-errors")
-  set(CMAKE_CXX_FLAGS "${CMAKE_THREAD_LIBS_INIT} ${WARNING} ${CMAKE_CXX_FLAGS}")
+  set(WARNING "-Wall -Wextra  -pedantic -pedantic-errors")
+  set(CMAKE_CXX_FLAGS "${WARNING} ${CMAKE_CXX_FLAGS}")
 endif()
 
 add_library(azure-storage-lite ${AZURE_STORAGE_LITE_HEADER} ${AZURE_STORAGE_LITE_SOURCE})

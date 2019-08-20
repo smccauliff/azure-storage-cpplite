@@ -42,6 +42,8 @@ namespace azure {  namespace storage_lite {
             return m_account_key;
         }
 
+	virtual ~shared_key_credential() = default;
+
     private:
         std::string m_account_name;
         std::vector<unsigned char> m_account_key;
